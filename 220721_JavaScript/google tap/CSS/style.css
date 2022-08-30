@@ -1,0 +1,126 @@
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-ul {
+  display: flex;
+  align-items: center;
+  list-style: none; /*불릿기호를 지웁니다*/
+  padding: 0; /*안쪽 여백을 지웁니다*/
+}
+
+.header-ul li {
+  margin-left: 10px; /* 왼쪽 외곽 여백을 부여합니다*/
+}
+.main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 중앙 배치 */
+  text-align: center;
+}
+
+/* 로고 파트 */
+.image-logo {
+  width: 272px;
+}
+
+/* 검색 파트 */
+.search-container {
+  margin-top: 50px;
+  position: relative;
+}
+
+.search-input {
+  /* width: 100%; 임의변경*/
+  width: 550px;
+  height: 44px;
+  border-radius: 33px;
+  padding-left: 40px;
+  border: 1px solid #dddddd;
+}
+
+.search-icon {
+  width: 17px;
+  position: absolute;
+  left: 13px;
+  top: 17px;
+}
+
+/* 북마크 파트 */
+
+.bookmark-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.bookmark-item {
+  width: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* a tag 기본 옵션 밑줄 없애기 */
+  text-decoration: none;
+  margin-top: 30px;
+}
+
+/* hover 마우스를 특정 element에 가져다 댔을 경우 */
+.bookmark-item:hover {
+  /* 투명도 관련 css */
+  opacity: 0.5;
+  /* 마우스 커서가 올라갈 때 보여질 모양 */
+  cursor: pointer;
+}
+
+.img-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background-color: #f1f2f3;
+  border-radius: 50%;
+  /* 가로 세로 중앙 정렬 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-icon-wrapper img {
+  width: 50%;
+  height: 50%;
+}
+
+/*  */
+.toggle-button {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 다크모드를 위한 css */
+.text {
+  color: black;
+}
+
+.toggle-button-darkmode {
+  background-color: white;
+  color: black;
+}
+
+.body-background-darkmode {
+  background-color: black;
+}
+
+.text-darkmode {
+  color: white;
+}
+
+.image-icon-wrapper-darkmode {
+  background-color: white;
+}

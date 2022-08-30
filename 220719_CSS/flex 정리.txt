@@ -1,0 +1,19 @@
+flex-direction
+	row		요소들을 row 로 정렬
+	column		요소들을 column 으로 정렬
+	row-reverse	row의 반대, 즉 오른쪽에서 왼쪽으로 정렬
+	column-reverse	column의 반대, 즉 위에서 아래로 정렬
+
+align-items: 
+	center 		요소들을 컨테이너의 세로선 상의 가운데로 정렬
+	flex-start		요소들을 컨테이너의 꼭대기로 정렬	
+	flex-end		요소들을 컨테이너의 바닥으로 정렬
+	baseline		요소들을 컨테이너의 시작위치에 정렬
+	stretch		요소들을 컨테이너에 맞도록 늘림
+
+justify-content
+	flex-start		기본값. 요소들을 컨테이너의 왼쪽으로 정렬
+	flex-end		요소들을 컨테이너의 오른쪽으로 정렬
+	center		요소들을 컨테이너의 가운데로 정렬
+	space-around	요소들 "주위"에 동일한 간격을 둠
+	space-between	요소들 "사이에" 동일한 간격을 둠

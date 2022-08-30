@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <div></div>
+
+    <script>
+      const input = document.querySelector("input");
+      const div = document.querySelector("div");
+
+      // addEventListener('이벤트 리스너', '이벤트 핸들러')
+      // 이벤트 리스너가 발생했네? (ex 클릭)
+      // OK 이벤트 핸들러 진행시켜!
+      // input 같은 곳에서 변화가 일어나면 사용
+      // 데이터가 변경될 때
+      input.addEventListener("change", function (e) {
+        console.log(e);
+        // 이벤트가 발생한 위치
+        console.log(e.target);
+        // input의 데이터를 가져오는 경우
+        console.log(e.target.value);
+        
+        // input된 값을 div에 입력
+        div.textContent = e.target.value;
+      });
+    </script>
+  </body>
+</html>

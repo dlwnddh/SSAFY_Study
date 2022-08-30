@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .test {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div>HI</div>
+
+    <script>
+      const div = document.querySelector("div");
+      // setAttribute
+      // div.setAttribute('class', 'test');
+
+      // classList add
+      // classList.add("문자열") 클래스를 추가한다.;
+      div.classList.add("test");
+      div.classList.add("hello");
+      // 이미 추가된 속성값이라면 해당 값을 무시한다.
+      div.classList.add("hello");
+
+      // remove
+      // classList.remove("문자열")
+      // class 속성값을 제거한다.
+      // 이미 제거된 속성이면 해당 값을 무시한다.
+      div.classList.remove("test");
+
+      // toggle
+      // classList.toggle("문자열");
+      // 해당 값이 없으면 추가
+      // 해당 값이 있으면 제거
+      div.classList.toggle("test");
+      div.classList.toggle("test");
+      div.classList.toggle("test");
+
+      // contains
+      // classList.contains("문자열")
+      // 특정 class명이 추가가 되어있는지 판별
+      // true / false 리턴
+      console.log(div.classList.contains("test"));
+      console.log(div.classList.contains("testa"));
+
+      // replace
+      // classList.replace("기존 클래스명", '새로운 클래스명')
+      // 기존에 존재한던 특정 클래스 속성 값을 새로운 속성 값으로 교체한다.
+      div.classList.replace("test", "chicken");
+    </script>
+  </body>
+</html>

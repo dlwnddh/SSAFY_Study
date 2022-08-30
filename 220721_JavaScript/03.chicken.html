@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 치킨이라는 값이 입력된 경우
+    // input 활용 문제
+    // alert로 치킨은 언제나 옳다.-->
+    <input type="text">
+
+    <script>
+      const input = document.querySelector("input");
+
+      input.addEventListener("change", function (e) {
+        if (e.target.value === "치킨") {
+            alert("치킨은 언제나 옳다");
+        }
+      });
+    </script>
+  </body>
+</html>

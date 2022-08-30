@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+        <input type="text" id="id" />
+        <input type="password" id="pw" />
+
+        <!-- type을 기입하지 않으면 input typr=submit처럼 동작 -->
+        <button type="button" id="signup">회원가입하기</button>
+
+    </form>
+
+    <script>
+      const id = document.querySelector("#id");
+      const pw = document.querySelector("#pw");
+      const signupButton = document.querySelector("#signup");
+      
+      signupButton.addEventListener("click", function (e) {
+        if (id.value !== "" && pw.value !== "") {
+          alert("회원가입이 완료되었습니다");
+        }
+        else {
+            if (id.value === ""){
+                alert("아이디가 비어있습니다!")
+            }
+
+            if(pw.value === ""){
+                alert("패스워드가 비어있습니다!")
+            }
+        }
+      });
+    </script>
+  </body>
+</html>

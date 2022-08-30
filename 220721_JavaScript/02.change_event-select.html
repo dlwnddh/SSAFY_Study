@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select name="" id="">
+      <option value="치킨">치킨</option>
+      <option value="삼겹살">삼겹살</option>
+      <option value="마라탕">마라탕</option>
+    </select>
+
+    <div></div>
+
+    <script>
+      const select = document.querySelector("select");
+      const div = document.querySelector("div");
+
+      select.addEventListener("change", function (e) {
+        // option value를 불러온다.
+        console.log(e.target.value);
+
+        div.textContent = e.target.value;
+      });
+    </script>
+  </body>
+</html>

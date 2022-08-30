@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 기능 : 클릭 시 늘어나는 정사각형
+      // 초가화할 값, 배경색, width, heigth, 보여줄 텍스트
+      class Element {
+        constructor(backgroundColor, width, heigth, text) {
+          this.backgroundColor = backgroundColor;
+          this.width = width;
+          this.heigth = heigth;
+          this.text = text;
+
+          this.element = null;
+          this.init();
+        }
+
+        init() {
+          this.element = document.createElement("div");
+          this.element.style.backgroundColor = this.backgroundColor;
+          this.element.style.width = this.width;
+          this.element.style.height = this.heigth;
+
+          document.querySelector("body").append(this.element);
+          this.clickEvent();
+        }
+
+        /*  this를 통해 class 접근 시, 접근이 안되는 이슈가 발생한다.
+            clickEvent() {
+                console.log(this.element);
+                this.element.addEventListener('click', function() {
+                    console.log(this);
+                    alert(this.text);
+                })
+            }
+            */
+
+        /*  해결법 1. this를 다른 변수로 선언한다.
+            clickEvent() {
+                console.log(this.element);
+                const THIS = this;
+                this.element.addEventListener('click', function() {
+                    console.log(THIS);
+                    alert(THIS.text);
+                })
+            }
+            */
+
+        //  해결법 2. 화살표 함수를 활용한다.
+        clickEvent() {
+          // 화살표 함수는 본인의 this를 가리키지 않고, 상위의 this를 가리킨다.
+          this.element.addEventListener("click", (e) => {
+            console.log(this);
+            alert(this.text);
+          });
+        }
+      }
+
+      const red = new Element("red", "200px", "200px", "안녕하세요");
+      const blue = new Element("blue", "200px", "200px", "안녕못해요");
+    </script>
+  </body>
+</html>
