@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>multer</h1>
+    <input id="input-file" type="file" />
+    <button id="submit-button">파일 전송하기</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js"></script>
+    <script>
+      // 파일만 전송하면 되기 떄문에, 비동기 통신이 필요 없다.
+      // async, await : 서버에서 적당한 신호를 받아야 다음 js 코드를 실행하기 위해 필요하다.
+      const inputFile = document.querySelector("#input-file");
+      const submitButton = document.querySelector("#submit-button");
+      submitButton.addEventListener("click", () => {
+        console.dir(inputFile.files[0]);
+        const formData = new FormData();
+        formData.append("file", inputFile.files[0]);
+        axios.post("http://localhost:8080/api/file", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>요청하기</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const button = document.querySelector("button");
+      button.addEventListener("click", async function (e) {
+        // 정상 연결되는지 확인용
+        // const result = await axios.get("http://localhost:8080/api/menus");
+        // console.log(result);
+
+        // 서버에 전송
+        // 작성한 데이터(result)가 서버의 req.body에 저장된다.
+        const menu_name = "치킨";
+        const menu_description = "JMT";
+        const result = await axios.post("http://localhost:8080/api/menus", {
+          menu_name: "곧 점심",
+          menu_description: menu_description,
+        });
+        console.log(result);
+      });
+    </script>
+  </body>
+</html>
