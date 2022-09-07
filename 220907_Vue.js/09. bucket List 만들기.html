@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul v-for="(bucket, index) in buckets" v-bind:key="bucket.id">
+        <li v-if="bucket.done">{{bucket.text}}</li>
+      </ui>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.min.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            buckets: [
+              { id: 1, text: "치킨먹기", done: true },
+              { id: 2, text: "마라탕먹기", done: true },
+              { id: 3, text: "놀러가기", done: false },
+              { id: 4, text: "코딩하기", done: false },
+              { id: 5, text: "티비보기", done: true },
+            ],
+          };
+        },
+      });
+    </script>
+  </body>
+</html>
