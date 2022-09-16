@@ -10,7 +10,8 @@
         <button @click="updateImage">이미지 수정하기</button>
       </div>
 
-      <button @click="create">메뉴 추가하기</button>
+      <button v-else @click="create">메뉴 추가하기</button>
+      
     </div>
 
     <div class="image-wrapper" v-if="file">
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import { api } from '@/utils/axios';
+import { api } from "@/utils/axios";
 export default {
   data() {
     return {
@@ -30,7 +31,17 @@ export default {
     };
   },
   async created() {
-    this.$store.commit("SET_TITLE", "메뉴 추가하기");
+    console.log(this.$route);
+
+    if (this.$route.params.id) {
+      this.$store.commit("SET_TITLE", "메뉴 수정하기");
+      const result = await api.menus.findOne(this.$route.params.id);
+      console.log(result);
+      this.name = result.data.name;
+      this.description = result.data.description;
+    } else {
+      this.$store.commit("SET_TITLE", "메뉴 추가하기");
+    }
   },
   methods: {
     fileChange(e) {
@@ -43,6 +54,7 @@ export default {
       console.log(imageURL);
       return imageURL;
     },
+
     async create() {
       if (!this.name || !this.description || !this.file) {
         alert("빈 값이 있습니다 내용을 전부 작성해주세요");
@@ -63,11 +75,25 @@ export default {
         alert(result.data.message);
       }
     },
+      async update() {
+      // update;
+      const result = await api.menus.update(this.$route.params.id, this.name, this.description);
+      console.log(result);
+      alert(result.data.message);
+      this.$router.push(`/admin/menus/${this.$route.params.id}`)
+    },
+    
+    async updateImage(){
+      const result = await api.menus.updateImage(this.$route.params.id,this.file);
+      console.log(result);
+      alert(result.data.message);
+    }
+
   },
 };
 </script>
 
-<style scoped>
+<style>
 .form-wrapper {
   display: flex;
   flex-direction: column;

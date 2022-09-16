@@ -36,11 +36,6 @@ const upload = multer({
     limits: { fileSize: 5 * 1024 * 1024 },
   });
 
-
-
-
-
-
 app.get("/api/menus", async (req, res) => {
 	try {
 		const data = await pool.query("SELECT * FROM menus");
@@ -74,6 +69,7 @@ app.post('/api/menus', upload.single('file'),async(req, res) => {
 		console.log(req.file);
 		console.log(req.file.path);
 		console.log(req.body);
+		// post 시, image 파일 명에 \가 추가되는 것을 /로 바꿔주기
 		const path = req.file.path.replace("\\", "/");
 		const data = await pool.query(`INSERT INTO menus (name, description, image_src)
 		 VALUES (?, ?, ?)`, [req.body.name, req.body.description, path]);
